@@ -11,10 +11,34 @@ struct TicketRowItem: View {
     let cartItem: CartItem
     
     var body: some View {
-        Text("Ticket Row Item")
+        HStack {
+            HStack {
+                type
+                Spacer()
+                price
+                Spacer()
+                AddToCartButton()
+            }
+        }
     }
     
+    var type: some View {
+        ZStack {
+            Text(cartItem.item.name)
+                .frame(alignment: .center)
+                .custom(font: .regular, size: 18)
+                .foregroundColor(.baseText)
+        }.frame(minWidth: 50)
+    }
     
+    var price: some View {
+        ZStack {
+            Text("$\(cartItem.item.price, specifier: "%.2f")")
+                .frame(alignment: .center)
+                .custom(font: .bold, size: 18)
+                .foregroundColor(.baseText)
+        }.frame(minWidth: 50)
+    }
 }
 
 struct TicketRowItem_Previews: PreviewProvider {

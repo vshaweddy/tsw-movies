@@ -9,7 +9,16 @@ import SwiftUI
 
 struct TicketsView: View {
     var body: some View {
-        Text("Tickets View")
+        VStack {
+            TicketRowHeader()
+            VStack {
+                ForEach(0..<MockDataPreviewService.items.count) { index in
+                    TicketRowItem(cartItem: MockDataPreviewService.items[index]).padding(.horizontal, 10)
+                }
+            }
+        }
+        .background(Color.baseSecondaryBackground)
+        .cornerRadius(10, corners: [.bottomLeft, .bottomRight])
     }
 }
 

@@ -9,7 +9,20 @@ import SwiftUI
 
 struct TicketingView: View {
     var body: some View {
-        MovieDetailView()
+        VStack(spacing: 0) {
+            VStack {
+                MovieDetailView().padding(.bottom, 20)
+                TicketsView()
+            }
+            .padding(.horizontal)
+            .padding(.top, 100)
+            .background(Color.baseBackground)
+            
+            Spacer()
+            CheckoutProgressView().padding(.bottom, 70)
+        }
+        .background(Color.baseBackground)
+        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
     }
 }
 
